@@ -16,7 +16,6 @@ public class AssignmentStmt extends Statement{
     public Expression getLValue() {
         return lValue;
     }
-
     public void setLValue(Expression lValue) {
         this.lValue = lValue;
     }
@@ -24,7 +23,6 @@ public class AssignmentStmt extends Statement{
     public Expression getRValue() {
         return rValue;
     }
-
     public void setRValue(Expression rValue) {
         this.rValue = rValue;
     }
@@ -33,7 +31,6 @@ public class AssignmentStmt extends Statement{
     public String toString() {
         return "AssignmentStmt";
     }
-
     @Override
     public <T> T accept(IVisitor<T> visitor) {
         return visitor.visit(this);

@@ -1,6 +1,6 @@
- grammar distractor;
+ grammar Distriactor;
 
- program : (actor)+ main;
+ distractor : (actor)+ main;
 
  actor:
         ACTOR IDENTIFIER {System.out.println("ActorDec:" + $IDENTIFIER.getText());}

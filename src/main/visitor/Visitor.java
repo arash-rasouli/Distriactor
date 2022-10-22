@@ -2,8 +2,10 @@ package main.visitor;
 
 import main.ast.nodes.*;
 import main.ast.nodes.declaration.*;
-import main.ast.nodes.expression.values.primitive.BoolValue;
-import main.ast.nodes.expression.values.primitive.IntValue;
+import main.ast.nodes.statement.*;
+import main.ast.nodes.expression.*;
+import main.ast.nodes.expression.values.*;
+import main.ast.nodes.expression.values.primitive.*;
 
 public class Visitor<T> implements IVisitor<T> {
 
@@ -27,15 +29,6 @@ public class Visitor<T> implements IVisitor<T> {
         return null;
     }
 
-    @Override
-    public T visit(StructDeclaration structDeclaration) {
-        return null;
-    }
-
-    @Override
-    public T visit(SetGetVarDeclaration setGetVarDeclaration) {
-        return null;
-    }
 
     @Override
     public T visit(AssignmentStmt assignmentStmt) {
@@ -58,7 +51,7 @@ public class Visitor<T> implements IVisitor<T> {
     }
 
     @Override
-    public T visit(DisplayStmt displayStmt) {
+    public T visit(ConsoleOutStmt consoleOutStmt) {
         return null;
     }
 
@@ -68,29 +61,20 @@ public class Visitor<T> implements IVisitor<T> {
     }
 
     @Override
-    public T visit(LoopStmt loopStmt) {
+    public T visit(UntilStmt untilStmt) {
         return null;
     }
 
     @Override
-    public T visit(VarDecStmt varDecStmt) {
+    public T visit(ListAddStmt listAddStmt) {
         return null;
     }
 
     @Override
-    public T visit(ListAppendStmt listAppendStmt) {
-        return null;
-    }
+    public T visit(ListSize listSize) {return null;}
 
     @Override
-    public T visit(ListSizeStmt listSizeStmt) {
-        return null;
-    }
-
-    @Override
-    public T visit(BinaryExpression binaryExpression) {
-        return null;
-    }
+    public T visit(BinaryExpression binaryExpression) {return null;}
 
     @Override
     public T visit(UnaryExpression unaryExpression) {
@@ -104,11 +88,6 @@ public class Visitor<T> implements IVisitor<T> {
 
     @Override
     public T visit(ListAccessByIndex listAccessByIndex) {
-        return null;
-    }
-
-    @Override
-    public T visit(StructAccess structAccess) {
         return null;
     }
 
@@ -128,17 +107,17 @@ public class Visitor<T> implements IVisitor<T> {
     }
 
     @Override
-    public T visit(ListSize listSize) {
+    public T visit(ListValue listValue) {
+        return null;
+    }
+    @Override
+    public T visit(StringValue stringValue) {
         return null;
     }
 
     @Override
-    public T visit(ListAppend listAppend) {
+    public T visit(VoidValue voidValue) {
         return null;
     }
 
-    @Override
-    public T visit(ExprInPar exprInPar) {
-        return null;
-    }
 }
