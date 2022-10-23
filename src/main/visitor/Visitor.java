@@ -1,7 +1,7 @@
 package main.visitor;
 
-import main.ast.nodes.*;
 import main.ast.nodes.declaration.*;
+import main.ast.nodes.declaration.handlers.FunctionDeclaration;
 import main.ast.nodes.expression.values.primitive.BoolValue;
 import main.ast.nodes.expression.values.primitive.IntValue;
 
