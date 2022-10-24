@@ -1,6 +1,7 @@
-package main.ast.nodes.declaration;
+package main.ast.nodes.declaration.handlers;
 
 import main.ast.nodes.Node;
+import main.ast.nodes.declaration.VariableDeclaration;
 import main.ast.nodes.expression.Identifier;
 import main.ast.nodes.statement.Statement;
 import main.ast.types.Type;
@@ -9,26 +10,35 @@ import main.visitor.IVisitor;
 import java.util.*;
 
 //line -> identifier
-public class FunctionDeclaration extends Node {
-    private Identifier functionName;
-    private ArrayList<VariableDeclaration> args = new ArrayList<>();
-    private Statement body;
-    private Type returnType;
+public class BaseFunctionDeclaration extends Node {
+    protected Identifier name;
+    protected ArrayList<VariableDeclaration> args = new ArrayList<>();
+    protected Statement body;
 
 
-    public Identifier getFunctionName() {
-        return functionName;
+    public BaseFunctionDeclaration() {
     }
-    public void setFunctionName(Identifier functionName) {
-        this.functionName = functionName;
+
+    public BaseFunctionDeclaration(Identifier name) {
+        this.name = name;
+    }
+
+    public Identifier getName() {
+        return name;
+    }
+
+    public void setName(Identifier name) {
+        this.name = name;
     }
 
     public ArrayList<VariableDeclaration> getArgs() {
         return args;
     }
+
     public void setArgs(ArrayList<VariableDeclaration> args) {
         this.args = args;
     }
+
     public void addArg(VariableDeclaration arg) {
         this.args.add(arg);
     }
@@ -36,24 +46,18 @@ public class FunctionDeclaration extends Node {
     public Statement getBody() {
         return body;
     }
+
     public void setBody(Statement body) {
         this.body = body;
     }
 
-    public Type getReturnType() {
-        return returnType;
-    }
-    public void setReturnType(Type returnType) {
-        this.returnType = returnType;
-    }
-
     @Override
     public String toString() {
-        return "FunctionDeclaration_" + this.functionName.getName();
-    }
-    @Override
-    public <T> T accept(IVisitor<T> visitor) {
-        return visitor.visit(this);
+        return null;
     }
 
+    @Override
+    public <T> T accept(IVisitor<T> visitor) {
+        return null;
+    }
 }
