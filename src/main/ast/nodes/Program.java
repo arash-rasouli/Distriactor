@@ -1,6 +1,5 @@
 package main.ast.nodes;
 
-import main.ast.nodes.declaration.FunctionDeclaration;
 import main.ast.nodes.declaration.MainDeclaration;
 import main.visitor.IVisitor;
 
