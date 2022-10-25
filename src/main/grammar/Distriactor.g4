@@ -5,22 +5,21 @@
  actor:
         ACTOR IDENTIFIER {System.out.println("ActorDec:" + $IDENTIFIER.getText());}
         LBRACE
-        (annotation? msgHandler | annotation? observer | func )*
-        ( (stateVars? (annotation? msgHandler | annotation? observer | func )* constructor) |
-        (constructor (annotation? msgHandler | annotation? observer | func )* stateVars?) )
-        (annotation? msgHandler | annotation? observer | func )*
+        stateVars? constructor? (msgHandler | observer | func )*
         RBRACE;
 
  annotation:
         ATSIGN {System.out.println("ANNOTATION");} IGNORED LPAREN expression RPAREN SEMICOLON;
 
  msgHandler:
+        annotation*
         MSGHANDLER {System.out.print("MsgHandlerDec:");}
         IDENTIFIER {System.out.print($IDENTIFIER.getText());}
         LPAREN argDec RPAREN
         {System.out.println("");} LBRACE (handlerContent)* RBRACE;
 
  observer:
+        annotation*
         OBSERVER {System.out.print("ObserverDec: ");}
         IDENTIFIER {System.out.print($IDENTIFIER.getText());}
         LPAREN argDec RPAREN
@@ -77,7 +76,7 @@
         CONSOLE_OUT {System.out.println("Built-in:console_out");} LPAREN ((expression)) RPAREN SEMICOLON;
 
  mainConsole_outSmt:
-         CONSOLE_OUT {System.out.println("Built-in:console_out");} LPAREN ((mainExpression)) RPAREN SEMICOLO;
+         CONSOLE_OUT {System.out.println("Built-in:console_out");} LPAREN ((mainExpression)) RPAREN SEMICOLON;
 
  assignStmt:
         lExpression op=ASSIGN {System.out.println("Operator:" + $op.getText());} expression  SEMICOLON;
